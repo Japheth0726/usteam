@@ -51,7 +51,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 sshagent (['ansible-key']) {
-                      sh 'ssh -t -t ec2-user@13.41.184.200 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/docker-image.yml"'
+                      sh 'ssh -t -t ec2-user@13.38.67.248 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/docker-image.yml"'
                   }
               }
         }                
