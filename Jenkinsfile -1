@@ -41,7 +41,7 @@ pipeline {
                 type: 'war']],
                 credentialsId: 'nexus-cred',
                 groupId: 'Petclinic',
-                nexusUrl: 'https://nexus.selfdevops.space/repository/nexus-repo/',
+                nexusUrl: 'nexus.selfdevops.space',
                 nexusVersion: 'nexus3',
                 protocol: 'https',
                 repository: 'nexus-repo',
