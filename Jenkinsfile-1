@@ -5,7 +5,7 @@ pipeline {
             steps {
                 git branch: 'euteam20',
                 credentialsId: 'git-cred',
-                url: 'https://github.com/CloudHight/usteam.git'
+                url: 'https://github.com/Japheth0726/usteam.git'
             }
         }
         stage('Code Analysis') {
