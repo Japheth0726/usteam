@@ -52,7 +52,7 @@ pipeline {
             steps {
                 sshagent (['ansible-key']) {
                       
-                      sh 'ssh -t -t ec2-user@13.38.67.248 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/docker-image.yml"'
+                      sh 'ssh -t -t ec2-user@13.38.131.146 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/docker-image.yml"'
                   }
               }
         }                
@@ -64,14 +64,14 @@ pipeline {
         stage('Trigger Ansible to deploy app') {
             steps {
                 sshagent (['ansible-key']) {
-                      sh 'ssh -t -t ec2-user@13.38.67.248 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/docker-container.yml"'
-                      sh 'ssh -t -t ec2-user@13.38.67.248 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/newrelic-container.yml"'
+                      sh 'ssh -t -t ec2-user@13.38.131.146 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/docker-container.yml"'
+                      sh 'ssh -t -t ec2-user@13.38.131.146 -o strictHostKeyChecking=no "cd /etc/ansible && ansible-playbook /opt/docker/newrelic-container.yml"'
                   }
               }
         }
         stage('slack notification') {
             steps {
-                slackSend channel: '22nd-july-pet-adoption-jenkins-pipeline-project-eu-team', message: 'Application deploy successfully ', teamDomain: 'Cloudhight', tokenCredentialId: 'slack-cred'
+                slackSend channel: '14th-oct-2024-pet-adoption-project', message: 'Application deploy successfully ', teamDomain: 'Cloudhight', tokenCredentialId: 'slack-cred'
             }
         }
     }
